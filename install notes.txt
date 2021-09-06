@@ -1,2 +1,10 @@
 PARA ENTRAR AL ENVIRONMENT
 .\environment\Scripts\activate
+
+PROBAR QUE FUNCIONA DJANGO:
+ir a digitalstorefront
+ejecutar: 'python runserver'
+
+FUNCIONALIDAD VUE:
+ir a storefront_vue/
+ejecutar: 'npm run serve'
