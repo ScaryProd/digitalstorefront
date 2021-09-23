@@ -11,7 +11,7 @@
           aria-label="menu"
           aria-expanded="false"
           data-target="navbar-menu"
-          @click="showMobileMenu = !showMobileMenu;"
+          @click="showMobileMenu = !showMobileMenu"
         >
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -22,7 +22,7 @@
       <div
         class="navbar-menu"
         id="navbar-menu"
-        v-bind:class="{'is-active': showMobileMenu }"
+        v-bind:class="{ 'is-active': showMobileMenu }"
       >
         <div class="navbar-end">
           <router-link to="/vending" class="navbar-item"
@@ -46,8 +46,11 @@
       </div>
     </nav>
 
-    <section class="section">
-      <router-view />
+    <section class="hero is-medium is-dark mb-6">
+      <div class="hero-body has-text-centered">
+        <p class="title mb-6">Welcome to the Digital Storefront</p>
+        <p class="subtitle">The #1 place to stock your machines</p>
+      </div>
     </section>
 
     <footer class="footer">
