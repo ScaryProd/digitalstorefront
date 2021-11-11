@@ -1,18 +1,23 @@
 <template>
     <div class="page-product">
         <div class="columns is-multiline">
-            <div class="column is-9">
+            <div class="column is-6">
                 <figure class="image mb-6">
                     <img v-bind:src="product.get_image">
                 </figure>
+            </div>
+
+            <div class="column is-1"> </div>
+
+            <div class="column is-2">
+            <p> </p>
 
                 <h1 class="title">{{ product.name }}</h1>
 
-                <p>{{ product.description }}</p>
-            </div>
+                
 
-            <div class="column is-3">
-                <h2 class="subtitle">Information</h2>
+                <p>{{ product.description }}</p>
+
 
                 <p><strong>Price: </strong>${{ product.price }}</p>
                 
