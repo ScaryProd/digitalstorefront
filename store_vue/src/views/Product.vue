@@ -10,15 +10,12 @@
             <div class="column is-1"> </div>
 
             <div class="column is-2">
-            <p> </p>
 
                 <h1 class="title">{{ product.name }}</h1>
 
-                
-
                 <p>{{ product.description }}</p>
 
-
+                <p><strong>Available: </strong>{{ this.product.availableQuantity }}</p>
                 <p><strong>Price: </strong>${{ product.price }}</p>
                 
                 <div class="field has-addons mt-6">
@@ -75,22 +72,33 @@ export default {
             if (isNaN(this.quantity) || this.quantity < 1) {
                 this.quantity = 1
             }
-        
-            const item = {
-                product: this.product,
-                quantity: this.quantity
+            
+                const item = {
+                    product: this.product,
+                    quantity: this.quantity
+                }
+            if(this.product.availableQuantity >= item.quantity){
+                this.$store.commit('addToCart', item)
+                toast({
+                    message: this.product.name + ' ' + 'Items added to cart',
+                    type: 'is-success',
+                    dismissible: true,
+                    pauseOnHover: true,
+                    duration: 2000,
+                    position: 'bottom-right',
+                })
             }
+            else{
+                toast({
+                    message: 'Error! Quantity not available for item',
+                    type: 'is-not-success',
+                    dismissible: true,
+                    pauseOnHover: true,
+                    duration: 2000,
+                    position: 'bottom-right',
+                })
 
-            this.$store.commit('addToCart', item)
-
-            toast({
-                message: 'The product was added to the cart',
-                type: 'is-success',
-                dismissible: true,
-                pauseOnHover: true,
-                duration: 2000,
-                position: 'bottom-right',
-            })
+            }
         }
     }
 }
